@@ -1,0 +1,7 @@
+{
+  "name": "getupside",
+  "dependencies": {
+    "serverless": "^1.53.0",
+    "serverless-python-requirements": "^4.3.0"
+  }
+}

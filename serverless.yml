@@ -1,0 +1,27 @@
+service: getupside
+
+package:
+  exclude:
+    - .git
+    - .gitignore
+    - README.md
+    - .serverless
+    - node_modules/**
+    - package.json
+    - requirements.txt
+    - package-lock.json
+
+plugins:
+  - serverless-python-requirements
+
+provider:
+  name: aws
+  runtime: python2.7
+  timeout: 300
+  deploymentBucket: getupside-dev
+  role: arn:aws:iam::010736628126:role/getupside-dev-us-east-1-lambdaRole
+
+functions:
+   main:
+     name: getupside-dev
+     handler: src/handler.main
