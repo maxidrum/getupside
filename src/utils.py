@@ -50,12 +50,9 @@ def parse_page(page):
         return values[-2][1]
 
 
-def convert_date(date):
-    return datetime.strptime(date, '%H:%M, %d %B %Y').isoformat()
-
 
 def upload_file_to_s3(date, month_last_updates, title):
-    date = convert_date(date)
+    date = datetime.strptime(date, '%H:%M, %d %B %Y').isoformat()
     file_name = '{}.json'.format(title)
     data = {'number_updates_last_month': month_last_updates,
             'latest_update_time': date}
